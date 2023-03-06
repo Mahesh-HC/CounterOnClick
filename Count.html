@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <link rel="stylesheet" href="count.css">
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="section">
+            <div class="section1">
+                <p id="count">00</p>
+                <button class="countbtn">click to increase counter</button>
+            </div>
+        </div>
+    </div>
+    <div class="section2">
+        <button class="colorbtn">Change Color</button>
+    </div>
+
+
+    <script>
+        var counter
+        let timer
+        let value = "0" + 0
+        const countbtn = document.querySelector(".countbtn")
+        const colorbtn = document.querySelector(".colorbtn")
+        countbtn.addEventListener("click", () => {
+            timer = setInterval(() => {
+                value++
+                value = value < 10 ? "0" + value : value
+                document.querySelector('#count').innerHTML = value
+            }, 1000)
+        })
+
+        let colors = ["orange","#0000aa", "#11574a", "#d1001c", "#9e1212", "#cc00ff", "#fe01b1", "#f2013f", "#f4bfff", "#dd4455", "#9e003a"]
+        colorbtn.addEventListener("click", () => {
+            document.querySelector(".section").style.backgroundColor = colors[Math.floor((Math.random() * colors.length))]
+        })
+    </script>
+</body>
+
+</html>
